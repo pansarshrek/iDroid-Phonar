@@ -7,13 +7,13 @@ import java.net.Socket;
 
 import se.iDroid.phonar.model.Model;
 
-public class Communicator {
+public class CommunicationMonitor {
 
 	private DataOutputStream dos;
 	private DataInputStream dis;
 	private Model model;
 
-	public Communicator(Socket socket, Model model) {
+	public CommunicationMonitor(Socket socket, Model model) {
 		try {
 			this.dos = new DataOutputStream(socket.getOutputStream());
 			this.dis = new DataInputStream(socket.getInputStream());
@@ -25,7 +25,7 @@ public class Communicator {
 
 	}
 
-	public void sendCoords() {
+	public synchronized void sendCoords() {
 		try {
 			dos.writeInt(Protocol.COM_UPDATE_COORD);
 			dos.writeDouble(model.myLongitude());
@@ -36,7 +36,7 @@ public class Communicator {
 		}
 	}
 	
-	public void updateUserCoords() {
+	public synchronized void updateUserCoords() {
 		try {
 			dos.writeInt(Protocol.COM_GET_COORDS);
 			dis.readInt();
@@ -44,6 +44,14 @@ public class Communicator {
 		} catch (IOException e) {
 			
 		}
+	}
+	
+	public synchronized void sendCreateGroupCommand() {
+		
+	}
+	
+	public synchronized void sendLeaveGroupCommand() {
+		
 	}
 
 }

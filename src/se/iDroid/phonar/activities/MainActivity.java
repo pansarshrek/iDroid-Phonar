@@ -1,5 +1,9 @@
 package se.iDroid.phonar.activities;
 
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
 import se.iDroid.phonar.R;
 import se.iDroid.phonar.bootstrap.Bootstrap;
 import android.app.Activity;
@@ -14,7 +18,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		//Bootstrap b = new Bootstrap();
+		
+		Bootstrap b = new Bootstrap();
 	}
 
 	@Override
