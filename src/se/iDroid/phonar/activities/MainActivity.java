@@ -1,5 +1,7 @@
-package se.iDroid.phonar;
+package se.iDroid.phonar.activities;
 
+import se.iDroid.phonar.R;
+import se.iDroid.phonar.bootstrap.Bootstrap;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//Bootstrap b = new Bootstrap();
 	}
 
 	@Override

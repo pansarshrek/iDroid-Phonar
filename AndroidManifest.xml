@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="se.iDroid.phonar.MainActivity"
+            android:name="se.iDroid.phonar.activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,11 +23,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="se.iDroid.phonar.ChartViewActivity">
+            android:name="se.iDroid.phonar.activities.ChartViewActivity">
             
         </activity>
          <activity
-            android:name="se.iDroid.phonar.CreateGroupActivity">
+            android:name="se.iDroid.phonar.activities.CreateGroupActivity">
             
         </activity>
     </application>

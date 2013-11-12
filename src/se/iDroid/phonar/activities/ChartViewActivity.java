@@ -1,5 +1,6 @@
-package se.iDroid.phonar;
+package se.iDroid.phonar.activities;
 
+import se.iDroid.phonar.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
