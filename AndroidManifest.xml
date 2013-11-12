@@ -26,6 +26,10 @@
             android:name="se.iDroid.phonar.ChartViewActivity">
             
         </activity>
+         <activity
+            android:name="se.iDroid.phonar.CreateGroupActivity">
+            
+        </activity>
     </application>
 
 </manifest>
