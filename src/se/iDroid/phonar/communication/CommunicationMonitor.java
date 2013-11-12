@@ -8,6 +8,8 @@ import java.net.Socket;
 import se.iDroid.phonar.model.Model;
 
 public class CommunicationMonitor {
+	
+	private static CommunicationMonitor me;
 
 	private DataOutputStream dos;
 	private DataInputStream dis;
