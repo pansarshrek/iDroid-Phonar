@@ -25,5 +25,10 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, ChartViewActivity.class);
 		startActivity(intent);
 	}
+	
+	public void goToGroup(View view){
+		Intent intent = new Intent(this, CreateGroupActivity.class);
+		startActivity(intent);
+	}
 
 }
