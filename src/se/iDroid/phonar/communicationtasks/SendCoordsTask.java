@@ -22,7 +22,7 @@ public class SendCoordsTask extends SendTask{
 		DataOutputStream dos = new DataOutputStream(bos);
 		
 		try {
-			dos.writeInt(Protocol.COM_UPDATE_COORDS);
+			dos.writeByte(Protocol.COM_UPDATE_COORDS);
 			dos.writeUTF(model.myName());
 			dos.writeDouble(model.myLatitude());
 			dos.writeDouble(model.myLongitude());

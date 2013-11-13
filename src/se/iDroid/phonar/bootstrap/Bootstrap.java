@@ -28,7 +28,6 @@ public class Bootstrap {
 			PollThread pollThread = new PollThread(comMon);
 			sentThread.start();
 			pollThread.start();
-			comMon.sendHelloWorld();
 		} catch (SocketException e) {
 			e.printStackTrace();
 		}

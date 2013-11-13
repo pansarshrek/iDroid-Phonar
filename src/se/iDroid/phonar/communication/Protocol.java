@@ -2,7 +2,7 @@ package se.iDroid.phonar.communication;
 
 public class Protocol {
 	
-	public static final int COM_UPDATE_COORDS = 0, // COM_UPDATE_COORD <username> <latitude> <longitude> <latitude>
+	public static final byte COM_UPDATE_COORDS = 0, // COM_UPDATE_COORD <username> <latitude> <longitude> <latitude>
 			COM_GET_COORDS = 1, // COM_GET_COORDS
 			COM_CREATE_GROUP = 2, // COM_CREATE_GROUP <groupname>
 			COM_DISBAND_GROUP = 3, // COM_CREATE_GROUP <groupname>
