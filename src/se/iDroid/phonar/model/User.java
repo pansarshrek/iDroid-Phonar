@@ -30,6 +30,10 @@ public class User {
 		return altitude;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}

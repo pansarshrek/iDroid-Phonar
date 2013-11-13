@@ -42,7 +42,7 @@ public class CommunicationMonitor {
 	}
 
 	public synchronized void sendCoords() {
-//		tasks.add(new SendCoordsTask());
+		tasks.add(new SendCoordsTask());
 		notifyAll();
 	}
 	
