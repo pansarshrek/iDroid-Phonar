@@ -16,9 +16,9 @@ public class Bootstrap {
 	public Bootstrap() {
 		DatagramSocket socket;
 		try {
-			Log.d("UDP", "hurray????");
+			Log.d("Phonar:UDP", "Creating DatagramSocket...");
 			socket = new DatagramSocket();
-			Log.d("UDP", "hurray!!!!");
+			Log.d("Phonar:UDP", "DatagramSocket created");
 			model = new Model();
 			CommunicationMonitor comMon = new CommunicationMonitor(socket, model);
 			SendThread sentThread = new SendThread(comMon);
