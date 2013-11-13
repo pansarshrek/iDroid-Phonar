@@ -11,16 +11,19 @@ import android.util.Log;
 
 public class Bootstrap {
 	
+	private static Bootstrap instance;
+	
 	private Model model;
+	private CommunicationMonitor comMon;
 
-	public Bootstrap() {
+	private Bootstrap() {
 		DatagramSocket socket;
 		try {
 			Log.d("Phonar:UDP", "Creating DatagramSocket...");
 			socket = new DatagramSocket();
 			Log.d("Phonar:UDP", "DatagramSocket created");
 			model = new Model();
-			CommunicationMonitor comMon = new CommunicationMonitor(socket, model);
+			comMon = new CommunicationMonitor(socket, model);
 			SendThread sentThread = new SendThread(comMon);
 			PollThread pollThread = new PollThread(comMon);
 			sentThread.start();
@@ -29,6 +32,16 @@ public class Bootstrap {
 		} catch (SocketException e) {
 			e.printStackTrace();
 		}
-		
+	}
+	
+	public CommunicationMonitor getCommunicationMonitor() {
+		return comMon;
+	}
+	
+	public static Bootstrap getInstance() {
+		if (instance == null) {
+			instance = new Bootstrap();
+		}
+		return instance;
 	}
 }

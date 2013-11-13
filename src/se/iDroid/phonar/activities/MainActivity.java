@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		Log.d("Phonar", "starting");
-		Bootstrap b = new Bootstrap();
+		Bootstrap b = Bootstrap.getInstance();
 	}
 
 	@Override
