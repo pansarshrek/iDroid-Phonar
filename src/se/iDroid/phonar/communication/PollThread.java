@@ -12,7 +12,7 @@ public class PollThread extends Thread {
 	public void run() {
 		while (true) {
 			com.sendCoords();
-			com.updateUserCoords();
+			com.updateCoords();
 			tick(5000);
 		}
 	}

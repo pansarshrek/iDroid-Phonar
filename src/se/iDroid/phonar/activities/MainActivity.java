@@ -17,6 +17,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		Log.d("Phonar", "starting");
 		Bootstrap b = Bootstrap.getInstance();
+		b.getCommunicationMonitor().createUser();
 	}
 
 	@Override

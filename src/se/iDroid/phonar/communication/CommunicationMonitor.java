@@ -4,9 +4,8 @@ import java.net.DatagramSocket;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import se.iDroid.phonar.communicationtasks.HelloWorldTask;
-import se.iDroid.phonar.communicationtasks.SendCoordsTask;
-import se.iDroid.phonar.communicationtasks.SendTask;
+
+import se.iDroid.phonar.communicationtasks.*;
 import se.iDroid.phonar.model.Model;
 
 public class CommunicationMonitor {
@@ -47,7 +46,8 @@ public class CommunicationMonitor {
 		notifyAll();
 	}
 	
-	public synchronized void updateUserCoords() {
+	public synchronized void updateCoords() {
+		tasks.add(new GetCoordsTask());
 		notifyAll();
 	}
 	
@@ -57,6 +57,10 @@ public class CommunicationMonitor {
 	
 	public synchronized void sendLeaveGroupCommand() {
 		notifyAll();
+	}
+	
+	public synchronized void createUser() {
+		tasks.add(new CreateUserTask(model));
 	}
 	
 }

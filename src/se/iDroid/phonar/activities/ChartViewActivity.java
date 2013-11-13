@@ -1,6 +1,7 @@
 package se.iDroid.phonar.activities;
 
 import se.iDroid.phonar.R;
+import se.iDroid.phonar.bootstrap.Bootstrap;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -11,6 +12,7 @@ public class ChartViewActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chart_view);
+		
 	}
 
 	@Override

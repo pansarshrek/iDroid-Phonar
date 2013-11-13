@@ -1,18 +1,16 @@
 package se.iDroid.phonar.communicationtasks;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
 
 import se.iDroid.phonar.communication.Protocol;
 import se.iDroid.phonar.model.Model;
 
-public class SendCoordsTask extends SendTask{
+public class CreateUserTask extends SendTask {
 	
 	private Model model;
 	
-	public SendCoordsTask(Model model) {
+	public CreateUserTask(Model model) {
 		this.model = model;
 	}
 
@@ -20,12 +18,8 @@ public class SendCoordsTask extends SendTask{
 	public DatagramPacket createPacket() {
 		
 		try {
-			dos.writeByte(Protocol.COM_UPDATE_COORDS);
+			dos.writeByte(Protocol.COM_CREATE_USER);
 			dos.writeUTF(model.myName());
-			dos.writeDouble(model.myLatitude());
-			dos.writeDouble(model.myLongitude());
-			dos.writeDouble(model.myAltitude());
-
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -33,10 +27,7 @@ public class SendCoordsTask extends SendTask{
 		
 		byte[] buffer = baos.toByteArray();
 		
-		DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-		
-		return packet;
-		
+		return new DatagramPacket(buffer, buffer.length);
 	}
 
 }
