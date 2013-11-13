@@ -1,8 +1,5 @@
 package se.iDroid.phonar.communication;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket;
 
 public class PollThread extends Thread {
 
@@ -16,7 +13,7 @@ public class PollThread extends Thread {
 		while (true) {
 			com.sendCoords();
 			com.updateUserCoords();
-			tick(100);
+			tick(5000);
 		}
 	}
 

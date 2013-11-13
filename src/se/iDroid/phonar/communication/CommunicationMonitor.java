@@ -1,59 +1,59 @@
 package se.iDroid.phonar.communication;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket;
+import java.net.DatagramSocket;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import se.iDroid.phonar.model.Model;
 
 public class CommunicationMonitor {
 	
-	private static CommunicationMonitor me;
-
-	private DataOutputStream dos;
-	private DataInputStream dis;
+	private static CommunicationMonitor instance;
 	private Model model;
+	private DatagramSocket socket;
+	
+	private Queue<SendTask> tasks;
 
-	public CommunicationMonitor(Socket socket, Model model) {
-		try {
-			this.dos = new DataOutputStream(socket.getOutputStream());
-			this.dis = new DataInputStream(socket.getInputStream());
-			this.model = model;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public CommunicationMonitor(DatagramSocket socket, Model model) {
+		tasks = new LinkedList<SendTask>();
+		this.model = model;
+		this.socket = socket;
+	}
+	
+	public synchronized void sendPendingTasks() {
+		while (tasks.isEmpty()) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
-
+		while (!tasks.isEmpty()) {
+			SendTask task = tasks.poll();
+			task.execute(socket);
+		}
+	}
+	
+	public synchronized void sendHelloWorld() {
+		tasks.add(new HelloWorldTask());
+		notifyAll();
 	}
 
 	public synchronized void sendCoords() {
-		try {
-			dos.writeInt(Protocol.COM_UPDATE_COORD);
-			dos.writeDouble(model.myLongitude());
-			dos.writeDouble(model.myLatitude());
-			dos.writeDouble(model.myAltitude());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		tasks.add(new SendCoordsTask());
+		notifyAll();
 	}
 	
 	public synchronized void updateUserCoords() {
-		try {
-			dos.writeInt(Protocol.COM_GET_COORDS);
-			dis.readInt();
-			
-		} catch (IOException e) {
-			
-		}
+		notifyAll();
 	}
 	
 	public synchronized void sendCreateGroupCommand() {
-		
+		notifyAll();
 	}
 	
 	public synchronized void sendLeaveGroupCommand() {
-		
+		notifyAll();
 	}
-
+	
 }
