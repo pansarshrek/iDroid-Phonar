@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import se.iDroid.phonar.communicationtasks.HelloWorldTask;
+import se.iDroid.phonar.communicationtasks.SendCoordsTask;
 import se.iDroid.phonar.communicationtasks.SendTask;
 import se.iDroid.phonar.model.Model;
 
@@ -42,7 +43,7 @@ public class CommunicationMonitor {
 	}
 
 	public synchronized void sendCoords() {
-		tasks.add(new SendCoordsTask());
+		tasks.add(new SendCoordsTask(model));
 		notifyAll();
 	}
 	

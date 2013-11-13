@@ -8,6 +8,7 @@ public class Model {
 	private ArrayList<User> users;
 	
 	public Model() {
+		me = new User("Erik", 0.25, 0.34, 0.23);
 		users = new ArrayList<User>();
 	}
 	
