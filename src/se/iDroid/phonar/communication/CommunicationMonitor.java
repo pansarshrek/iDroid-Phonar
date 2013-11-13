@@ -4,6 +4,8 @@ import java.net.DatagramSocket;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import se.iDroid.phonar.communicationtasks.HelloWorldTask;
+import se.iDroid.phonar.communicationtasks.SendTask;
 import se.iDroid.phonar.model.Model;
 
 public class CommunicationMonitor {
