@@ -23,6 +23,10 @@ public class Model {
 		return me.getAltitude();
 	}
 	
+	public String myName() {
+		return me.getName();
+	}
+	
 	public void updateUserCoords(ArrayList<User> users) {
 		this.users = users;
 	}
