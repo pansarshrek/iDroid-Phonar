@@ -1,5 +1,8 @@
 package se.iDroid.phonar.model;
 
+import java.io.DataInputStream;
+import java.io.IOException;
+
 public class User {
 	
 	private String name;
@@ -12,6 +15,13 @@ public class User {
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.altitude = altitude;
+	}
+	
+	public User(DataInputStream dis) throws IOException {
+		this.name = dis.readUTF();
+		this.latitude = dis.readDouble();
+		this.longitude = dis.readDouble();
+		this.altitude = dis.readDouble();
 	}
 	
 	public User(String name) {
